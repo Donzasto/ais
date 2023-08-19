@@ -28,7 +28,7 @@ reboot
 }
 
 configure() {
-pacman -S dhcpcd sudo vim plasma yakuake dolphin sddm packagekit-qt5 bluez bluez-utils pulseaudio-bluetooth ufw firefox keepassxc ntfs-3g libreoffice-still vlc adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-emoji krita nvidia-open spectacle gwenview kcalc grub efibootmgr git github-cli ovmf qemu-full << EOF
+pacman -S dhcpcd sudo vim plasma yakuake dolphin sddm packagekit-qt5 bluez bluez-utils pulseaudio-bluetooth ufw chromium ark keepassxc ntfs-3g libreoffice-still vlc adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-emoji krita nvidia-open spectacle gwenview kcalc grub efibootmgr git github-cli ovmf qemu-full << EOF
 
 
 
