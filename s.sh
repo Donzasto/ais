@@ -28,13 +28,7 @@ reboot
 }
 
 configure() {
-pacman -S dhcpcd sudo vim plasma yakuake dolphin sddm packagekit-qt5 bluez bluez-utils pulseaudio-bluetooth ufw chromium ark keepassxc ntfs-3g libreoffice-still vlc adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-emoji krita nvidia-open spectacle gwenview kcalc grub efibootmgr git github-cli ovmf qemu-full << EOF
-
-
-
-
-
-
+pacman -S --noconfirm dhcpcd sudo vim plasma yakuake dolphin sddm packagekit-qt6 bluez bluez-utils pipewire ufw chromium ark keepassxc ntfs-3g libreoffice-still vlc adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-emoji krita spectacle gwenview kcalc grub efibootmgr git github-cli ovmf qemu-full << EOF
 EOF
 systemctl enable dhcpcd.service sddm bluetooth.service
 sed -i -e 's/#ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/' /etc/locale.gen
@@ -53,9 +47,6 @@ mount "$DRIVE"1 /boot/efi
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
 #Убрать гул(треск) из динамиков
 sed -i "s/load-module module-suspend-on-idle/#load-module module-suspend-on-idle/" /etc/pulse/default.pa
-#Переключение с nouveau на nvidia drivers
-echo -e "blacklist nouveau\noptions nouveau modeset=0" >> /etc/modprobe.d/blacklist-nouveau.conf
-mkinitcpio -p linux
 #Скрыть boot menu
 sed -i "s/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/" /etc/default/grub
 sed -i "s/GRUB_TIMEOUT_STYLE=menu/GRUB_TIMEOUT_STYLE=hidden/" /etc/default/grub
