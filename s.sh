@@ -45,8 +45,6 @@ echo "s/root ALL=(ALL:ALL) ALL/root ALL=(ALL:ALL) ALL\n$username ALL=(ALL) ALL/"
 mkdir /boot/efi
 mount "$DRIVE"1 /boot/efi
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
-#Убрать гул(треск) из динамиков
-sed -i "s/load-module module-suspend-on-idle/#load-module module-suspend-on-idle/" /etc/pulse/default.pa
 #Скрыть boot menu
 sed -i "s/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/" /etc/default/grub
 sed -i "s/GRUB_TIMEOUT_STYLE=menu/GRUB_TIMEOUT_STYLE=hidden/" /etc/default/grub
